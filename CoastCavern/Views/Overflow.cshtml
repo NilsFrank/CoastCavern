@@ -1,0 +1,9 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+    @foreach (var child in Model.Content.Children)
+    {
+        Html.RenderPartial(child.DocumentTypeAlias, child);
+    }

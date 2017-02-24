@@ -1,0 +1,46 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>@Umbraco.Field("pageName") | Coast Cavern</title>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="LoginWindow">
+        <h2>@Umbraco.Field("begruessung")</h2>
+       @Html.Action("MemberLogin", "Membership");
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #222222;
+    }
+
+    #LoginWindow {
+        margin-top: 8%;
+        position: absolute;
+        padding: 2em;
+        margin-left: 40%;
+        width: 20%;
+        height: 40%;
+        background-color: lightgrey;
+        opacity: 0.3;
+        border-radius: 20px;
+    }
+
+    button {
+        width: 50px;
+        height: 35px;
+    }
+
+    input {
+        height: 30px;
+        width: 250px;
+        margin-bottom: 1em;
+    }
+</style>

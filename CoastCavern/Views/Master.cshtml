@@ -1,0 +1,110 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+
+    if (!User.Identity.IsAuthenticated)
+    {
+        Response.Redirect("~/Login");
+    }
+}
+<!DOCTYPE HTML>
+<!--
+    Overflow 1.0 by HTML5 UP
+    html5up.net | twitter.com/n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>@Umbraco.Field("pageName") | @Umbraco.Field("siteName", recursive: true)</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 8]><script src="/css/ie/html5shiv.js"></script><![endif]-->
+    <script src="~/scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="~/scripts/jquery.poptrox-2.2.js" type="text/javascript"></script>
+    <script src="~/scripts/skel.min.js" type="text/javascript"></script>
+    <script src="~/scripts/init.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="~/css/skel-noscript.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+</head>
+<body>
+    <!-- Header -->
+    <section id="header">
+        <header>
+            <h1>@Umbraco.Field("siteName", recursive: true)</h1>
+            <p>@Umbraco.Field("byline", recursive: true)</p>
+            <!--Navi-->
+            <div>
+                @{
+                    var rootNodes = Umbraco.TypedContentAtRoot().Where("Visible");
+
+                    foreach (var node in rootNodes)
+                    {
+                        <a style="margin: 5px;" href="@node.Url">-@node.Name-</a>
+                    }
+                }
+            </div>
+        </header>
+        <div>
+            @{
+                var isOpen = false;
+                if (Umbraco.Field("offen").ToString() != "")
+                {
+                    var image = Umbraco.Field("offen").ToString().Equals("1") ? "openImage" : "closedImage";
+                    isOpen = Umbraco.Field("offen").ToString().Equals("1");
+                    <img style="border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field(image).ToString())).Url" alt="Open/Closed Image" />
+                }
+            }
+            @{
+                var dateTime = Umbraco.Field("openingTimes");
+
+                if (dateTime.ToString() != "" && !isOpen)
+                {
+                    var date = Convert.ToDateTime(dateTime.ToString()).ToShortDateString();
+                    var time = Convert.ToDateTime(dateTime.ToString()).ToShortTimeString();
+                    <p>Wieder offen am @date um @time</p>
+                }
+            }
+        </div>
+    </section>
+
+    @RenderBody()
+
+
+    <section id="footer">
+        <div class="copyright">
+            <ul class="menu">
+                <li>&copy; @DateTime.Now.Year @Umbraco.Field("copyright", recursive: true).</li>
+            </ul>
+            @*@{
+                var users = Membership.GetAllUsers();
+            }
+            <p>
+                Online User:
+                @foreach (MembershipUser user in users)
+                {
+                    if (user.LastActivityDate < DateTime.UtcNow.AddMinutes(-(Membership.UserIsOnlineTimeWindow + 1)))
+                    {
+                        var test = string.Format(user.UserName + ", ");
+                        @test
+                    }
+                }
+            </p>
+            <p>
+                Offline User:
+                @foreach (MembershipUser user in users)
+                {
+                    if (!user.IsOnline)
+                    {
+                        var test = string.Format(user.UserName + ", ");
+                        @test
+                    }
+                }
+            </p>*@
+        </div>
+    </section>
+    <script src="~/scripts/Overflow.min.js"></script>
+</body>
+</html>

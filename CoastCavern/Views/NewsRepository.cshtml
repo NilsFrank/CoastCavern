@@ -1,0 +1,32 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+<article style="border-radius: 10px; width: 70% !important" id="@(CurrentPage.IsFirst() ? "first" : null)" class="container box style1 @(CurrentPage.IsEven() ? "right" : "left")">
+    <div class="inner" style="margin-right: 0; padding-right: 0; margin-left: 0; padding-left: 0;">
+        @{ var nodes = Model.Content.Children.Where(x => x.GetPropertyValue<bool>("verstecken") == false).OrderByDescending(x => x.UpdateDate);
+            foreach (var node in nodes)
+            {
+                <header>
+                    <h3 style="font-size: 0.9em;">
+                        @(node.GetPropertyValue<string>("uberschrift"))
+                    </h3>
+                </header>
+                <div>
+                    <div id="inhaltsText">
+                        @(Html.Raw(node.GetPropertyValue("inhalt")))
+                    </div>
+                    <small style="font-size: 0.5em; color: #BBBBBB;">@(node.UpdateDate)</small>
+                </div>
+                <hr style="margin: 0;"/>
+            }
+        }
+    </div>
+</article>
+
+<style>
+    #inhaltsText p span {
+        font-size: 0.7em;
+        line-height: 0;
+    }
+</style>

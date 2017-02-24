@@ -1,0 +1,28 @@
+﻿@inherits UmbracoTemplatePage
+<article style="border-radius: 10px; width: 70% !important" id="@(CurrentPage.IsFirst() ? "first" : null)" class="container box style1 @(CurrentPage.IsEven() ? "right" : "left")">
+    <div class="inner">
+        <header>
+            <h3>
+                @Umbraco.Field("featureHeader")
+            </h3>
+        </header>
+        <p style="font-size: 0.8em;">
+            @Html.Raw(Umbraco.ReplaceLineBreaksForHtml(CurrentPage.FeatureText))
+        </p>
+
+        @{
+            var link = Umbraco.Field("link");
+            var header = Umbraco.Field("pollHeader");
+            var text = Umbraco.Field("pollDescription");
+            if (link != null && header != null)
+            {
+                <hr />
+                <div>
+                    <h3>@header</h3>
+                    <p style="font-size: 0.8em;"><a href="@link">Zur Umfrage</a></p>
+                    <p style="font-size: 0.8em;">@text</p>
+                </div>
+            }
+        }
+    </div>
+</article>
