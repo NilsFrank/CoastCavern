@@ -576,8 +576,6 @@
     <Content Include="images\favicon\manifest.json" />
     <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-P7D06ST.txt.2017-02-23" />
     <Content Include="App_Data\Logs\UmbracoTraceLog.DESKTOP-P7D06ST.txt.2017-02-24" />
-    <Content Include="App_Data\Models\all.dll.path" />
-    <Content Include="App_Data\Models\models.hash" />
     <Content Include="App_Data\packages\created\createdPackages.config" />
     <Content Include="App_Data\packages\installed\installedPackages.config" />
     <Content Include="App_Data\TEMP\ExamineIndexes\External\Index\segments.gen" />
@@ -3296,8 +3294,6 @@
     <Content Include="App_Code\UmbContactController.cs" />
     <Content Include="App_Code\LoginViewModel.cs" />
     <Content Include="App_Code\MembershipController.cs" />
-    <Compile Include="App_Data\Models\all.generated.cs" />
-    <Compile Include="App_Data\Models\models.generated.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
