@@ -76,7 +76,7 @@
     <add type="Umbraco.Core.PropertyEditors.ValueConverters.YesNoValueConverter, Umbraco.Core, Version=1.0.6261.14290, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="Umbraco.Web.Mvc.SurfaceController" resolutionType="FindAllTypes">
-    <add type="CoastCavern.MembershipController, App_Code.ty_ibyqe, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="CoastCavern.MembershipController, App_Code.yw-0mi4g, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbProfileController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbLoginStatusController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbRegisterController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
@@ -84,7 +84,7 @@
     <add type="Lecoati.LeBlender.Extension.Controllers.LeBlenderController, Lecoati.LeBlender.Extension, Version=1.0.8.3, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="Umbraco.Web.WebApi.UmbracoApiController" resolutionType="FindAllTypes">
-    <add type="Overflow.Controllers.UmbContactController, App_Code.ty_ibyqe, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="Overflow.Controllers.UmbContactController, App_Code.yw-0mi4g, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Editors.GravatarController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.HealthCheck.HealthCheckController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Editors.RedirectUrlManagementController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
@@ -293,20 +293,6 @@
     <add type="umbraco.cms.presentation.Trees.LegacyTree, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.cms.presentation.Trees.UserPermissions, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.cms.presentation.Trees.UserTypes, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-  </baseType>
-  <baseType type="Umbraco.Web.HealthCheck.HealthCheck" resolutionType="FindAllTypes">
-    <add type="Umbraco.Web.HealthCheck.Checks.Config.MacroErrorsCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Config.NotificationEmailCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Config.TrySkipIisCustomErrorsCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Config.CustomErrorsCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Config.TraceCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Config.CompilationDebugCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Services.SmtpCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Permissions.FolderAndFilePermissionsCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Security.ExcessiveHeadersCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Security.ClickJackingCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.Security.HttpsCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Umbraco.Web.HealthCheck.Checks.DataIntegrity.XmlDataIntegrityHealthCheck, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="umbraco.interfaces.ICacheRefresher" resolutionType="FindAllTypes">
     <add type="Umbraco.Web.Cache.RelationTypeCacheRefresher, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
