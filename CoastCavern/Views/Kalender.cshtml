@@ -4,8 +4,24 @@
 }
 <article class="article-full" id="@(CurrentPage.IsFirst() ? "first" : null)" class="container box style1 @(CurrentPage.IsEven() ? "right" : "left")">
     <div class="inner" style="margin-right: 0; padding-right: 0;">
-        @{ var nodes = Model.Content.Children.Where(x => x.GetPropertyValue<bool>("verstecken") == false);
-            foreach (var node in nodes)
+        @{
+            var pageSize = Convert.ToInt32(Umbraco.Field("itemsPerPage").ToString());
+            var page = 1;
+            int.TryParse(Request.QueryString["page"], out page);
+
+            var items = Model.Content.Children.Where(x => x.GetPropertyValue<bool>("verstecken") == false).OrderByDescending(x => x.UpdateDate);
+            var totalPages = (int)Math.Ceiling((double)items.Count() / pageSize);
+
+            if (page > totalPages)
+            {
+                page = totalPages;
+            }
+            else if (page < 1)
+            {
+                page = 1;
+            }
+
+            foreach (var node in items.Skip((page - 1) * pageSize).Take(pageSize))
             {
                 <header>
                     <h3>
@@ -22,6 +38,28 @@
                     <p>@(Html.Raw(node.GetPropertyValue("beschreibung")))</p>
                 </div>
                 <hr />
+            }
+
+            if (totalPages > 1)
+            {
+                <div class="pagination">
+                    <ul style="list-style: none;">
+                        @if (page > 1)
+                        {
+                            <li class="pagination-item"><a href="?page=@(page-1)">Prev</a></li>
+                        }
+                        @for (int p = 1; p < totalPages + 1; p++)
+                        {
+                            <li class="@(p == page ? "active" : string.Empty) pagination-item">
+                                <a href="?page=@p">@p</a>
+                            </li>
+                        }
+                        @if (page < totalPages)
+                        {
+                            <li class="pagination-item"><a href="?page=@(page+1)">Next</a></li>
+                        }
+                    </ul>
+                </div>
             }
         }
     </div>

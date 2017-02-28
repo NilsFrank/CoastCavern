@@ -18,13 +18,15 @@ namespace CoastCavern
         [ActionName("MemberLogin")]
         public ActionResult Validate(LoginViewModel model)
         {
-            if (Membership.ValidateUser(model.Login, model.Password))
+            if (model != null && model.Login != null && model.Password != null)
             {
-                FormsAuthentication.SetAuthCookie(model.Login, model.RememberMe);
-                return Redirect("/");
+                if (Membership.ValidateUser(model.Login, model.Password))
+                {
+                    FormsAuthentication.SetAuthCookie(model.Login, model.RememberMe);
+                    return Redirect("/");
+                }
             }
-            TempData["Status"] = "Invalid Log-in Credentials";
-            return RedirectToCurrentUmbracoPage() ;
+            return RedirectToCurrentUmbracoPage();
         }
 
         [HttpGet]

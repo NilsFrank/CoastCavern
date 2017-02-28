@@ -14,12 +14,22 @@
     margin-left: 10%;
     margin-right: 15%;
     background-color: white;
-    padding: 5%
+    padding: 5%;
 }
 
 .font-small * {
     font-size: 16px;
 }
+
+.pagination-item {
+    margin: 0 0.5em 0 0 !important;
+    padding: 0 !important;
+    display: inline-block;
+}
+
+    .pagination-item * {
+        border: 0 !important;
+    }
 
 
 
