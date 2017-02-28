@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "34caafac9dec7e")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c11d42d80f8866b2")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
@@ -182,30 +182,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Offen?
-		///</summary>
-		[ImplementPropertyType("offen")]
-		public object Offen
-		{
-			get { return this.GetPropertyValue("offen"); }
-		}
-
-		///<summary>
 		/// Open Image
 		///</summary>
 		[ImplementPropertyType("openImage")]
 		public string OpenImage
 		{
 			get { return this.GetPropertyValue<string>("openImage"); }
-		}
-
-		///<summary>
-		/// Uhrzeit/Datum
-		///</summary>
-		[ImplementPropertyType("openingTimes")]
-		public DateTime OpeningTimes
-		{
-			get { return this.GetPropertyValue<DateTime>("openingTimes"); }
 		}
 
 		///<summary>
@@ -333,6 +315,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Items per page
+		///</summary>
+		[ImplementPropertyType("itemsPerPage")]
+		public int ItemsPerPage
+		{
+			get { return this.GetPropertyValue<int>("itemsPerPage"); }
+		}
+
+		///<summary>
 		/// Site Name
 		///</summary>
 		[ImplementPropertyType("siteName")]
@@ -383,6 +374,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Copyright
 		{
 			get { return this.GetPropertyValue<string>("copyright"); }
+		}
+
+		///<summary>
+		/// Items per page
+		///</summary>
+		[ImplementPropertyType("itemsPerPage")]
+		public int ItemsPerPage
+		{
+			get { return this.GetPropertyValue<int>("itemsPerPage"); }
 		}
 
 		///<summary>
