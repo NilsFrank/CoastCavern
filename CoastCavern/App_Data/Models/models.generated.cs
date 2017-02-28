@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "76b5dd6a3a8355e")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "34caafac9dec7e")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -154,6 +154,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Copyright
 		{
 			get { return this.GetPropertyValue<string>("copyright"); }
+		}
+
+		///<summary>
+		/// Öffnungszeiten
+		///</summary>
+		[ImplementPropertyType("oeffnungszeiten")]
+		public Diplo.DateRangePicker.DateRange Oeffnungszeiten
+		{
+			get { return this.GetPropertyValue<Diplo.DateRangePicker.DateRange>("oeffnungszeiten"); }
 		}
 
 		///<summary>

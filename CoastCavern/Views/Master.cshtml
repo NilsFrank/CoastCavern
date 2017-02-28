@@ -23,10 +23,10 @@
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
     <!--[if lte IE 8]><script src="/css/ie/html5shiv.js"></script><![endif]-->
     @*<script src="~/scripts/jquery.min.js" type="text/javascript"></script>
-    <script src="~/scripts/jquery.poptrox-2.2.js" type="text/javascript"></script>
-    <script src="~/scripts/skel.min.js" type="text/javascript"></script>
-    <script src="~/scripts/init.js" type="text/javascript"></script>*@
-    
+        <script src="~/scripts/jquery.poptrox-2.2.js" type="text/javascript"></script>
+        <script src="~/scripts/skel.min.js" type="text/javascript"></script>
+        <script src="~/scripts/init.js" type="text/javascript"></script>*@
+
     <!--FAV ICONS-->
     <link rel="apple-touch-icon" sizes="57x57" href="~/images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="~/images/favicon/apple-icon-60x60.png">
@@ -70,22 +70,19 @@
         </header>
         <div>
             @{
-                var isOpen = false;
-                if (Umbraco.Field("offen").ToString() != "")
-                {
-                    var image = Umbraco.Field("offen").ToString().Equals("1") ? "openImage" : "closedImage";
-                    isOpen = Umbraco.Field("offen").ToString().Equals("1");
-                    <img style="max-width:100%; max-height:100%; border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field(image).ToString())).Url" alt="Open/Closed Image" />
-                }
-            }
-            @{
-                var dateTime = Umbraco.Field("openingTimes");
+                var dateRange = Model.Content.GetPropertyValue<Diplo.DateRangePicker.DateRange>("oeffnungszeiten");
 
-                if (dateTime.ToString() != "" && !isOpen)
+                if (dateRange != null)
                 {
-                    var date = Convert.ToDateTime(dateTime.ToString()).ToShortDateString();
-                    var time = Convert.ToDateTime(dateTime.ToString()).ToShortTimeString();
-                    <p>Wieder offen am @date um @time</p>
+                    if (DateTime.Now >= dateRange.StartDate && DateTime.Now < dateRange.EndDate)
+                    {
+                        <img style="max-width:100%; max-height:100%; border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field("openImage").ToString())).Url" alt="Open/Closed Image" />
+                    }
+                    else
+                    {
+                        <img style="max-width:100%; max-height:100%; border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field("closedImage").ToString())).Url" alt="Open/Closed Image" />
+                        <p>Wieder offen am @dateRange.StartDate.ToShortDateString() um @dateRange.StartDate.ToShortTimeString()</p>
+                    }
                 }
             }
         </div>
@@ -100,30 +97,30 @@
                 <li>&copy; @DateTime.Now.Year @Umbraco.Field("copyright", recursive: true).</li>
             </ul>
             @*@{
-                var users = Membership.GetAllUsers();
-            }
-            <p>
-                Online User:
-                @foreach (MembershipUser user in users)
-                {
-                    if (user.LastActivityDate < DateTime.UtcNow.AddMinutes(-(Membership.UserIsOnlineTimeWindow + 1)))
-                    {
-                        var test = string.Format(user.UserName + ", ");
-                        @test
-                    }
+                    var users = Membership.GetAllUsers();
                 }
-            </p>
-            <p>
-                Offline User:
-                @foreach (MembershipUser user in users)
-                {
-                    if (!user.IsOnline)
+                <p>
+                    Online User:
+                    @foreach (MembershipUser user in users)
                     {
-                        var test = string.Format(user.UserName + ", ");
-                        @test
+                        if (user.LastActivityDate < DateTime.UtcNow.AddMinutes(-(Membership.UserIsOnlineTimeWindow + 1)))
+                        {
+                            var test = string.Format(user.UserName + ", ");
+                            @test
+                        }
                     }
-                }
-            </p>*@
+                </p>
+                <p>
+                    Offline User:
+                    @foreach (MembershipUser user in users)
+                    {
+                        if (!user.IsOnline)
+                        {
+                            var test = string.Format(user.UserName + ", ");
+                            @test
+                        }
+                    }
+                </p>*@
         </div>
     </section>
     <script src="~/scripts/Overflow.min.js"></script>
