@@ -48,6 +48,7 @@
     <add type="Umbraco.Core.Strategies.RelateOnTrashHandler, Umbraco.Core, Version=1.0.6261.14290, Culture=neutral, PublicKeyToken=null" />
     <add type="Lecoati.LeBlender.Extension.Events.UmbracoEvents, Lecoati.LeBlender.Extension, Version=1.0.8.3, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.ModelsBuilder.Umbraco.ModelsBuilderApplication, Umbraco.ModelsBuilder, Version=3.0.5.96, Culture=neutral, PublicKeyToken=null" />
+    <add type="CoastCavern.RegisterEvents, App_Code.zg54y55v, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.providers.members.MembershipEventHandler, umbraco.providers, Version=1.0.6261.14294, Culture=neutral, PublicKeyToken=null" />
     <add type="KS.Umbraco7.Calendar.Core.CalendarEventHandler, KS.Umbraco7.Calendar.Core, Version=0.1.7.5, Culture=neutral, PublicKeyToken=null" />
   </baseType>
@@ -82,7 +83,7 @@
     <add type="Umbraco.Web.Controllers.UmbLoginStatusController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbRegisterController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Controllers.UmbLoginController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="CoastCavern.MembershipController, App_Code.zzb206qw, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="CoastCavern.MembershipController, App_Code.zg54y55v, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="Umbraco.Web.WebApi.UmbracoApiController" resolutionType="FindAllTypes">
     <add type="Lecoati.LeBlender.Extension.Controllers.LeBlenderEditorManagerTreeController, Lecoati.LeBlender.Extension, Version=1.0.8.3, Culture=neutral, PublicKeyToken=null" />
@@ -133,8 +134,9 @@
     <add type="Umbraco.Web.WebServices.ExamineManagementApiController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.WebServices.TagsController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.WebServices.XmlDataIntegrityController, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />
-    <add type="Overflow.Controllers.UmbContactController, App_Code.zzb206qw, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.ModelsBuilder.Umbraco.ModelsBuilderBackOfficeController, Umbraco.ModelsBuilder, Version=3.0.5.96, Culture=neutral, PublicKeyToken=null" />
+    <add type="Overflow.Controllers.UmbContactController, App_Code.zg54y55v, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="CoastCavern.ZeitController, App_Code.zg54y55v, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="Umbraco.Core.Media.IThumbnailProvider" resolutionType="FindAllTypes">
     <add type="Umbraco.Web.Media.ThumbnailProviders.MediaTypeIconThumbnailProvider, umbraco, Version=1.0.6261.14296, Culture=neutral, PublicKeyToken=null" />

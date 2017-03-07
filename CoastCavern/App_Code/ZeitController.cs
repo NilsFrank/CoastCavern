@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using Umbraco.Core.Persistence;
 using Umbraco.Web.WebApi;
@@ -10,13 +9,13 @@ namespace CoastCavern
     public class ZeitController : UmbracoApiController
     {
         [HttpGet]
-        public void SetTime(string day, DateTime timeFrom, DateTime timeTo)
+        public void SetTime(string day, string timeFrom, string timeTo)
         {
             var db = ApplicationContext.Current.DatabaseContext.Database;
 
             var sql = new Sql()
                 .Select("*")
-                .From("DashboardConfig")
+                .From("Zeit")
                 .Where("Day=@0", day)
                 .OrderBy("Id");
 
@@ -43,21 +42,24 @@ namespace CoastCavern
         }
 
         [HttpGet]
-        public List<DateTime> GetTime(string day)
+        public List<string> GetTime(string day)
         {
             var db = ApplicationContext.Current.DatabaseContext.Database;
 
             var sql = new Sql()
                 .Select("*")
-                .From("DashboardConfig")
+                .From("Zeit")
                 .Where("Day=@0", day)
                 .OrderBy("Id");
 
             var zeit = db.SingleOrDefault<TimeDB>(sql);
+            if (zeit != null)
+            {
+                List<string> test = new List<string> { zeit.TimeFrom, zeit.TimeTo };
+                return test;
 
-            List<DateTime> test = new List<DateTime> { zeit.TimeFrom, zeit.TimeTo };
-
-            return test;
+            }
+            return null;
         }
     }
 }

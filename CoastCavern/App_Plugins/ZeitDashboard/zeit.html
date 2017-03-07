@@ -1,16 +1,32 @@
 ﻿<div ng-controller="ZeitDashboard">
     <label>Tage</label>
-    <input ng-model="day" type="checkbox" name="tage" value="Montag"/>
-    <input ng-model="day" type="checkbox" name="tage" value="Dienstag"/>
-    <input ng-model="day" type="checkbox" name="tage" value="Mittwoch"/>
-    <input ng-model="day" type="checkbox" name="tage" value="Donnerstag"/>
-    <input ng-model="day" type="checkbox" name="tage" value="Freitag"/>
-    <input ng-model="day" type="checkbox" name="tage" value="Samstag"/>
-    <input ng-model="day" type="checkbox" name="tage" value="Sonntag"/>
-    
+    <br />
+    <label>Montag</label>
+    <input ng-click="clickDay(1)" type="radio" name="tage" value="Montag" />
+    <br />
+    <label>Dienstag</label>
+    <input ng-click="clickDay(2)" type="radio" name="tage" value="Dienstag" />
+    <br />
+    <label>Mittwoch</label>
+    <input ng-click="clickDay(3)" type="radio" name="tage" value="Mittwoch" />
+    <br />
+    <label>Donnerstag</label>
+    <input ng-click="clickDay(4)" type="radio" name="tage" value="Donnerstag" />
+    <br />
+    <label>Freitag</label>
+    <input ng-click="clickDay(5)" type="radio" name="tage" value="Freitag" />
+    <br />
+    <label>Samstag</label>
+    <input ng-click="clickDay(6)" type="radio" name="tage" value="Samstag" />
+    <br />
+    <label>Sonntag</label>
+    <input ng-click="clickDay(7)" type="radio" name="tage" value="Sonntag" />
+    <br/>
     <label>Offen von:</label>
-    <input ng-model="timeFrom" type="time"/>
-    
+    <input ng-model="timeFrom" type="time" />
+
     <label>Offen bis:</label>
-    <input ng-model="timeTo" type="time"/>
+    <input ng-model="timeTo" type="time" />
+    
+    <input ng-click="setTime()" type="button" style="width: 50px; height: 30px;" name="Save" value="Save"/>
 </div>

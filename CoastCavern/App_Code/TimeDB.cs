@@ -13,8 +13,8 @@ namespace CoastCavern
 
         public string Day { get; set; }
 
-        public DateTime TimeFrom { get; set; }
+        public string TimeFrom { get; set; }
 
-        public DateTime TimeTo { get; set; }
+        public string TimeTo { get; set; }
     }
 }

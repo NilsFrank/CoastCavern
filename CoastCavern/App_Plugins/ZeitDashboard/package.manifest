@@ -1,5 +1,6 @@
 ﻿{
   "javascript": [
-    "~/App_Plugins/ZeitDashboard/zeit.controller.js"
+    "~/App_Plugins/ZeitDashboard/zeit.controller.js",
+    "~/App_Plugins/ZeitDashboard/zeit.ressouce.js"
   ]
 }
