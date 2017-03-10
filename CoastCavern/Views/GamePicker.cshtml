@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.GamePicker>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+}
+<article class="article-full" id="@(CurrentPage.IsFirst() ? "first" : null)" class="container box style1 @(CurrentPage.IsEven() ? "right" : "left")">
+    <div class="inner" style="margin-right: 0; padding-right: 0;">
+        @{
+            Random rnd = new Random();
+            var gamesList = Umbraco.Field("games").ToString().Split(',');
+            int game = rnd.Next(0, gamesList.Length);
+            <h3>Das Spiel des Tages ist:</h3>
+            <p>@gamesList.ElementAt(game)</p>
+        }
+    </div>
+</article>

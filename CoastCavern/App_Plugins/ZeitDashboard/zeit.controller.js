@@ -20,37 +20,37 @@
         switch (day) {
             case 1:
                 {
-                    $scope.day = "Montag";
+                    $scope.day = "Monday";
                     break;
                 }
             case 2:
                 {
-                    $scope.day = "Dienstag";
+                    $scope.day = "Tuesday";
                     break;
                 }
             case 3:
                 {
-                    $scope.day = "Mittwoch";
+                    $scope.day = "Wednesday";
                     break;
                 }
             case 4:
                 {
-                    $scope.day = "Donnerstag";
+                    $scope.day = "Thursday";
                     break;
                 }
             case 5:
                 {
-                    $scope.day = "Freitag";
+                    $scope.day = "Friday";
                     break;
                 }
             case 6:
                 {
-                    $scope.day = "Samstag";
+                    $scope.day = "Saturday";
                     break;
                 }
             case 7:
                 {
-                    $scope.day = "Sonntag";
+                    $scope.day = "Sunday";
                     break;
                 }
 

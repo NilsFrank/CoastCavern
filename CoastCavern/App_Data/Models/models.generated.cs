@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c11d42d80f8866b2")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "deaaced06851b6cb")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -473,6 +473,68 @@ namespace Umbraco.Web.PublishedContentModels
 		public bool UmbracoNaviHide
 		{
 			get { return this.GetPropertyValue<bool>("umbracoNaviHide"); }
+		}
+	}
+
+	/// <summary>Game Picker</summary>
+	[PublishedContentModel("gamePicker")]
+	public partial class GamePicker : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "gamePicker";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public GamePicker(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GamePicker, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Byline
+		///</summary>
+		[ImplementPropertyType("byline")]
+		public string Byline
+		{
+			get { return this.GetPropertyValue<string>("byline"); }
+		}
+
+		///<summary>
+		/// Copyright
+		///</summary>
+		[ImplementPropertyType("copyright")]
+		public string Copyright
+		{
+			get { return this.GetPropertyValue<string>("copyright"); }
+		}
+
+		///<summary>
+		/// Game Picker
+		///</summary>
+		[ImplementPropertyType("games")]
+		public object Games
+		{
+			get { return this.GetPropertyValue("games"); }
+		}
+
+		///<summary>
+		/// Sitename
+		///</summary>
+		[ImplementPropertyType("siteName")]
+		public string SiteName
+		{
+			get { return this.GetPropertyValue<string>("siteName"); }
 		}
 	}
 

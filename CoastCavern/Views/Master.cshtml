@@ -1,4 +1,5 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using CoastCavern
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = null;
 
@@ -70,18 +71,27 @@
         </header>
         <div>
             @{
-                var dateRange = Model.Content.GetPropertyValue<Diplo.DateRangePicker.DateRange>("oeffnungszeiten");
 
-                if (dateRange != null)
+                if (Model.Content.Id == 1055)
                 {
-                    if (DateTime.Now >= dateRange.StartDate && DateTime.Now < dateRange.EndDate)
+                    ZeitController zeit = new ZeitController();
+                    var test = DateTime.Today.DayOfWeek.ToString();
+                    var time = zeit.GetTime(DateTime.Today.DayOfWeek.ToString());
+
+                    if (time != null)
                     {
-                        <img style="max-width:100%; max-height:100%; border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field("openImage").ToString())).Url" alt="Open/Closed Image" />
-                    }
-                    else
-                    {
-                        <img style="max-width:100%; max-height:100%; border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field("closedImage").ToString())).Url" alt="Open/Closed Image" />
-                        <p>Wieder offen am @dateRange.StartDate.ToShortDateString() um @dateRange.StartDate.ToShortTimeString()</p>
+                        var from = DateTime.ParseExact(time.ElementAt(0), "HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+                        var to = DateTime.ParseExact(time.ElementAt(1), "HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+
+
+                        if (DateTime.Now.TimeOfDay >= from.TimeOfDay && DateTime.Now.TimeOfDay < to.TimeOfDay)
+                        {
+                            <img style="max-width:100%; max-height:100%; border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field("openImage").ToString())).Url" alt="Open/Closed Image" />
+                        }
+                        else
+                        {
+                            <img style="max-width:100%; max-height:100%; border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field("closedImage").ToString())).Url" alt="Open/Closed Image" />
+                        }
                     }
                 }
             }
