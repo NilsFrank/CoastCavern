@@ -92,6 +92,20 @@
                         {
                             <img style="max-width:100%; max-height:100%; border: 2px solid black; border-radius: 10px;" src="@Umbraco.TypedMedia(Convert.ToInt32(Umbraco.Field("closedImage").ToString())).Url" alt="Open/Closed Image" />
                         }
+                        <h4>Öffnungszeiten diese Woche:</h4>
+                        <p>
+                            @for (int i = 0; i < 7; i++)
+                            {
+                                var day = (DayOfWeek)((i + 1) % 7);
+                                time = zeit.GetTime(day.ToString());
+
+                                from = DateTime.ParseExact(time.ElementAt(0), "HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+                                to = DateTime.ParseExact(time.ElementAt(1), "HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+
+                                <uselessTag>@day.ToString(): @from.ToShortTimeString() bis @to.ToShortTimeString()</uselessTag><br/>
+
+                            }
+                        </p>
                     }
                 }
             }
