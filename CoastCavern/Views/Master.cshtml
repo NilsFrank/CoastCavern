@@ -101,8 +101,14 @@
 
                                 from = DateTime.ParseExact(time.ElementAt(0), "HH:mm", System.Globalization.CultureInfo.InvariantCulture);
                                 to = DateTime.ParseExact(time.ElementAt(1), "HH:mm", System.Globalization.CultureInfo.InvariantCulture);
-
-                                <uselessTag>@day.ToString(): @from.ToShortTimeString() bis @to.ToShortTimeString()</uselessTag><br/>
+                                if (from.AddMinutes(5) < to)
+                                {
+                                    <uselessTag>@day.ToString(): @from.ToShortTimeString() bis @to.ToShortTimeString()</uselessTag><br />
+                                }
+                                else
+                                {
+                                    <uselessTag>@day.ToString(): Geschlossen!</uselessTag><br />
+                                }
 
                             }
                         </p>
