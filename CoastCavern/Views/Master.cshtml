@@ -49,9 +49,10 @@
 
     @*<link rel="stylesheet" href="~/css/skel-noscript.css" type="text/css" />*@
     <link rel="stylesheet" href="~/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/animate.css" type="text/css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
 </head>
-<body>
+<body id="body">
     <!-- Header -->
     <section id="header">
         <header>
@@ -152,7 +153,20 @@
                     }
                 </p>*@
         </div>
+        <div id="eyeRape" style="position: absolute; width: 10px; height: 10px; background-color: black;">
+
+        </div>
     </section>
+    <script>
+        document.getElementById('eyeRape').onclick = function () {
+            document.getElementById('body').className += " animated infinite rotateIn";
+            document.getElementById('body').className += " animated infinite flash";
+            document.getElementById('header').className += " animated infinite flash";
+            document.getElementById('footer').className += " animated infinite flash";
+            document.getElementsByTagName('article')[0].className += " animated infinite flash";
+        };
+    </script>
     <script src="~/scripts/Overflow.min.js"></script>
 </body>
+
 </html>

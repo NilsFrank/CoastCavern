@@ -403,6 +403,7 @@
     <Content Include="App_Plugins\ZeitDashboard\zeit.controller.js" />
     <Content Include="App_Plugins\ZeitDashboard\zeit.html" />
     <Content Include="App_Plugins\ZeitDashboard\zeit.ressouce.js" />
+    <Content Include="css\animate.css" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\favicon\android-icon-144x144.png" />
     <Content Include="images\favicon\android-icon-192x192.png" />
